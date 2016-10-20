@@ -4,11 +4,10 @@
     2. Typography
     3. Navbar
     4. Button
-    5. Home
-    6. About
-    7. Portfolio
-    8. Contact
-    9. Footer
+    5. Jumbotron
+    6. Thumbnail
+    7. Timeline
+    8. Media Queries
    
 */
 /* 1. Basic Document Styles
@@ -32,6 +31,10 @@ body {
   font-size: .875rem;
   line-height: 20px;
   line-height: 1.25rem;
+}
+
+body{
+ background-color: #e0e0e0;
 }
 
 h1 {
@@ -102,7 +105,7 @@ button {
 }
 
 nav {
-  background-color: #009688;
+  background-color: #3f51b5;
   color: #000;
   text-transform: uppercase;
 }
@@ -117,29 +120,23 @@ img {
   display: block;
 }
 
-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  height: 1000px;
-}
-
 a {
-  color: #ff6e40;
+  color: #ff4081;
 }
 /* 2. Typography 
 -------------------------------------------------*/
 
-.primary-color {  color: #009688;  }
+.primary-color {  color: #3F51B5;  }
 
-.primary-color100 {  color: #b2dfdb;  }
+.primary-color100 {  color: #C5CAE9;  }
 
-.primary-color700 {  color: #00796b;  }
+.primary-color700 {  color: #303F9F;  }
 
-.accent-color {  color: #ff6E40;  }
+.accent-color {  color: #ff4081;  }
 
-.accent-100 {  color: #ff9E80;  }
+.accent-100 {  color: #ff80AB;  }
 
-.accent-400 {  color: #ff3D00;  }
+.accent-400 {  color: #ff5057;  }
 
 .base-black {  color: #000;  }
 
@@ -184,18 +181,18 @@ a {
 
 /* 3. Navbar
 -------------------------------------------------*/
-.navbar-default .navbar-nav>li>a {  color: #ff6e40;  }
+.navbar-default .navbar-nav>li>a {  color: #ff4081;  }
 
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-  border-bottom: 4px solid #ff3d00;
-  color: #ff3d00;
+  border-bottom: 4px solid #f50057;
+  color: #f50057;
 }
-.navbar-default .navbar-brand {  color: #ff6e40;  }
+.navbar-default .navbar-brand {  color: #ff4081;  }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #ff3d00;
+  color: #f50057;
 }
 
 /* 4. Button
@@ -207,7 +204,7 @@ a {
   margin: 8px;
   letter-spacing: 1px;
   text-transform: capitalize;
-  background-color: #ff6e40;
+  background-color: #ff4081;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
   border: 0 none;
   border-radius: none;  
@@ -222,7 +219,7 @@ a {
 
 .btn-primary {
   color: #ffffff;
-  background: #ff6e40;
+  background: #ff4081;
 }
 
 .btn-primary:hover,
@@ -230,12 +227,12 @@ a {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  background: #ff3d00;
+  background: #f50057;
 }
 
 .btn-primary:active,
 .btn-primary.active {
-  background: #ff6e40;
+  background: #ff4081;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
 }
 
@@ -248,17 +245,152 @@ a {
 .open>.dropdown-toggle.btn-primary.focus,
 .open>.dropdown-toggle.btn-primary:focus,
 .open>.dropdown-toggle.btn-primary:hover {
-  background: #ff6e40;
+  background: #ff4081;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
 }
 
-/* 5. Media Queries 
+/* 5. Jumbotron
 -------------------------------*/
-.jumbotron-container {
-  padding: 45px 15px 15px;
+
+.jumbotron {
+  position: relative;
+  margin-top: 40px;
+  text-align: center;
 }
 
-/* 6. Media Queries 
+/* 6. Thumbnail
+-------------------------------*/
+.thumbnail {
+  position: relative;
+  width: 628px;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 7. Timeline
+-------------------------------*/
+.timeline {  
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 1000px;
+}
+
+/* Design from https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528 */
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #f5f5f5;
+}
+
+.timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+    background: #f5f5f5;
+}
+
+.timeline ul li div::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style:solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #f5f5f5 transparent transparent;
+ 
+}
+
+.timeline ul li:nth-child(even) div {
+    left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #f5f5f5;
+}
+
+.timeline ul li::after {
+  background: #f5f5f5;
+  transition: background .5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+  background: #ff4081;
+}
+
+time {
+  color: #ff80ab;
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.timeline ul li:nth-child( odd ) div {
+    transform: translateX( 200px );
+}
+
+.timeline ul li:nth-child(even) div {
+    transform: translate3d( -200px, 0, 0 );
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* end of css from web design */
+
+.clear{
+    clear:both;
+}
+
+.credit {
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    padding: 20px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+
+/* 8. Media Queries 
 -------------------------------*/
 @media (max-width: 400px){
     h1 {
@@ -281,3 +413,44 @@ a {
       font-size: 2rem
     }
 }
+
+/* Design from https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528 */
+@media screen and ( max-width: 990px ) {
+  .timeline ul li div {
+      width: 250px;
+  }
+  
+  .timeline ul li:nth-child(even) div {
+      left: -289px; /* 250 + 45 - 6 */
+  }
+}
+
+@media screen and (max-width: 770px ) {
+    
+    h1 {
+        font-size: 70px;
+    }
+    
+    .timeline ul li {
+        margin-left: 20px;
+    }
+    
+    .timeline ul li div {
+        width: calc( 100vw - 91px );
+        width: 200px;
+    }
+    
+    .timeline ul li:nth-child(even) div {
+        left: 45px;
+    }
+    
+    .timeline ul li:nth-child(even) div::before {
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent #f5f5f5 transparent transparent;
+    }
+    
+}
+
+/* end of design from webdesign */
+
